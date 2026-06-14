@@ -10,7 +10,7 @@ export default function RegisterPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [upstreamUrl, setUpstreamUrl] = useState('');
-  const [plan, setPlan] = useState('free');
+  const [plan] = useState('free');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<{ projectKey: string } | null>(null);
@@ -52,7 +52,7 @@ export default function RegisterPage() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '28px',
+            fontSize: '30px',
             margin: '0 auto 24px',
           }}>
             ✓
@@ -72,12 +72,12 @@ export default function RegisterPage() {
             padding: '16px',
             marginBottom: '24px',
           }}>
-            <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '8px' }}>
+            <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '8px' }}>
               Your Project Key
             </p>
             <code style={{
               fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '14px',
+              fontSize: '16px',
               color: 'var(--primary-light)',
               wordBreak: 'break-all',
             }}>
@@ -88,7 +88,7 @@ export default function RegisterPage() {
           <button
             onClick={handleCopyAndContinue}
             className="btn btn-primary"
-            style={{ width: '100%', padding: '12px', fontSize: '15px' }}
+            style={{ width: '100%', padding: '12px', fontSize: '17px' }}
           >
             Copy Key & Go to Dashboard
           </button>
@@ -113,8 +113,8 @@ export default function RegisterPage() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '28px',
-            boxShadow: '0 8px 24px rgba(99, 102, 241, 0.3)',
+            fontSize: '30px',
+            boxShadow: '0 8px 24px rgba(85, 107, 47, 0.3)',
           }}>
             ⚡
           </div>
@@ -149,36 +149,20 @@ export default function RegisterPage() {
               onChange={(e) => setUpstreamUrl(e.target.value)}
               required
             />
-            <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '4px' }}>
+            <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginTop: '4px' }}>
               The URL of your backend API that requests will be forwarded to.
             </p>
           </div>
 
-          <div>
-            <label className="input-label">Plan</label>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px' }}>
-              {(['free', 'pro', 'enterprise'] as const).map((p) => (
-                <button
-                  key={p}
-                  type="button"
-                  onClick={() => setPlan(p)}
-                  style={{
-                    padding: '12px 8px',
-                    borderRadius: 'var(--radius-md)',
-                    border: `1px solid ${plan === p ? 'var(--primary)' : 'var(--border)'}`,
-                    background: plan === p ? 'rgba(99, 102, 241, 0.1)' : 'var(--bg-secondary)',
-                    color: plan === p ? 'var(--primary-light)' : 'var(--text-secondary)',
-                    cursor: 'pointer',
-                    textTransform: 'capitalize',
-                    fontSize: '13px',
-                    fontWeight: plan === p ? 600 : 400,
-                    transition: 'all var(--transition-fast)',
-                  }}
-                >
-                  {p}
-                </button>
-              ))}
-            </div>
+          <div style={{
+            padding: '12px 16px',
+            borderRadius: 'var(--radius-md)',
+            background: 'rgba(85, 107, 47, 0.05)',
+            border: '1px solid rgba(85, 107, 47, 0.1)',
+            fontSize: '15px',
+            color: 'var(--text-muted)',
+          }}>
+            ✨ All accounts start on the <strong style={{ color: 'var(--text-secondary)' }}>Free plan</strong>. You can upgrade to Pro or Enterprise from the Billing page after registration.
           </div>
 
           {error && <div className="error-message">{error}</div>}
@@ -187,7 +171,7 @@ export default function RegisterPage() {
             id="register-submit"
             type="submit"
             className="btn btn-primary"
-            style={{ width: '100%', padding: '12px', fontSize: '15px' }}
+            style={{ width: '100%', padding: '12px', fontSize: '17px' }}
             disabled={loading}
           >
             {loading ? 'Creating account...' : 'Create Account'}
@@ -202,3 +186,4 @@ export default function RegisterPage() {
     </div>
   );
 }
+

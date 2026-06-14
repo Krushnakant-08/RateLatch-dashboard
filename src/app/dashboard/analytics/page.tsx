@@ -43,7 +43,7 @@ export default function AnalyticsPage() {
               border: 'none',
               background: hours === range.value ? 'var(--primary)' : 'transparent',
               color: hours === range.value ? 'white' : 'var(--text-muted)',
-              fontSize: '13px',
+              fontSize: '15px',
               fontWeight: 500,
               cursor: 'pointer',
               transition: 'all var(--transition-fast)',
@@ -63,26 +63,26 @@ export default function AnalyticsPage() {
           marginBottom: '24px',
         }}>
           <div className="glass-card" style={{ padding: '20px 24px' }}>
-            <p style={{ fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
+            <p style={{ fontSize: '14px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
               Total Allowed
             </p>
-            <p style={{ fontSize: '24px', fontWeight: 700, color: 'var(--success-light)' }}>
+            <p style={{ fontSize: '26px', fontWeight: 700, color: 'var(--success-light)' }}>
               {data.summary.totalAllowed.toLocaleString()}
             </p>
           </div>
           <div className="glass-card" style={{ padding: '20px 24px' }}>
-            <p style={{ fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
+            <p style={{ fontSize: '14px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
               Total Blocked
             </p>
-            <p style={{ fontSize: '24px', fontWeight: 700, color: 'var(--error-light)' }}>
+            <p style={{ fontSize: '26px', fontWeight: 700, color: 'var(--error-light)' }}>
               {data.summary.totalBlocked.toLocaleString()}
             </p>
           </div>
           <div className="glass-card" style={{ padding: '20px 24px' }}>
-            <p style={{ fontSize: '12px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
+            <p style={{ fontSize: '14px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
               Block Rate
             </p>
-            <p style={{ fontSize: '24px', fontWeight: 700, color: 'var(--warning-light)' }}>
+            <p style={{ fontSize: '26px', fontWeight: 700, color: 'var(--warning-light)' }}>
               {data.summary.blockRate}
             </p>
           </div>
@@ -117,3 +117,4 @@ export default function AnalyticsPage() {
     </>
   );
 }
+

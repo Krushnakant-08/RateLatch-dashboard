@@ -170,3 +170,152 @@ export async function fetchUsage(
     token
   );
 }
+
+// ─── Plan & Billing ─────────────────────────────────
+
+export interface PlanLimits {
+  maxRoutes: number;
+  allowedKeyBy: string[];
+  priorityAllowed: boolean;
+  maxReqCap: number | null;
+  priceInr: number;
+  razorpayAmountPaise: number;
+  label: string;
+  description: string;
+}
+
+export interface PlanInfoResponse {
+  plan: string;
+  limits: PlanLimits;
+  ruleCount: number;
+}
+
+export interface PlanOption {
+  id: string;
+  label: string;
+  description: string;
+  priceInr: number;
+  maxRoutes: number;
+  allowedKeyBy: string[];
+  priorityAllowed: boolean;
+  maxReqCap: number | null;
+}
+
+export interface SubscriptionInfo {
+  id: string;
+  razorpay_sub_id: string;
+  razorpay_plan_id: string;
+  plan: string;
+  status: string;
+  current_start: string | null;
+  current_end: string | null;
+  created_at: string;
+}
+
+export interface SubscriptionResponse {
+  currentPlan: string;
+  subscription: SubscriptionInfo | null;
+}
+
+export interface SubscribeResponse {
+  subscriptionId: string;
+  razorpayKeyId: string;
+  plan: string;
+  amount: number;
+}
+
+export interface DowngradePreview {
+  targetPlan: string;
+  totalRules: number;
+  rulesToDelete: Rule[];
+  reasons: string[];
+  rulesAfter: number;
+}
+
+export async function fetchPlanInfo(token: string): Promise<PlanInfoResponse> {
+  return apiFetch<PlanInfoResponse>('/manage/plan-info', {}, token);
+}
+
+export async function fetchPlans(): Promise<{ plans: PlanOption[] }> {
+  return apiFetch<{ plans: PlanOption[] }>('/manage/billing/plans');
+}
+
+export async function fetchSubscription(token: string): Promise<SubscriptionResponse> {
+  return apiFetch<SubscriptionResponse>('/manage/billing/subscription', {}, token);
+}
+
+export async function createSubscription(
+  token: string,
+  plan: string
+): Promise<SubscribeResponse> {
+  return apiFetch<SubscribeResponse>('/manage/billing/subscribe', {
+    method: 'POST',
+    body: JSON.stringify({ plan }),
+  }, token);
+}
+
+export async function cancelSubscription(token: string): Promise<{ message: string }> {
+  return apiFetch<{ message: string }>('/manage/billing/cancel', {
+    method: 'POST',
+  }, token);
+}
+
+export async function fetchDowngradePreview(
+  token: string,
+  targetPlan: string
+): Promise<DowngradePreview> {
+  return apiFetch<DowngradePreview>(
+    `/manage/billing/downgrade-preview?targetPlan=${targetPlan}`,
+    {},
+    token
+  );
+}
+
+export async function confirmDowngrade(
+  token: string,
+  targetPlan: string
+): Promise<{ message: string; deletedRules: number; remainingRules: number }> {
+  return apiFetch<{ message: string; deletedRules: number; remainingRules: number }>(
+    '/manage/billing/confirm-downgrade',
+    {
+      method: 'POST',
+      body: JSON.stringify({ targetPlan }),
+    },
+    token
+  );
+}
+
+// ─── Admin ──────────────────────────────────────────
+
+export interface AdminTenant {
+  id: string;
+  email: string;
+  plan: string;
+  status: string;
+  upstream_url: string;
+  created_at: string;
+  updated_at: string;
+  rule_count: number;
+  planLimits: PlanLimits;
+}
+
+export async function fetchAdminTenants(token: string): Promise<{ tenants: AdminTenant[] }> {
+  return apiFetch<{ tenants: AdminTenant[] }>('/admin/tenants', {}, token);
+}
+
+export async function updateTenantPlan(
+  token: string,
+  tenantId: string,
+  plan: string,
+  force: boolean = false
+): Promise<{ message: string; previousPlan: string; newPlan: string }> {
+  return apiFetch<{ message: string; previousPlan: string; newPlan: string }>(
+    `/admin/tenants/${tenantId}/plan`,
+    {
+      method: 'PUT',
+      body: JSON.stringify({ plan, force }),
+    },
+    token
+  );
+}
+

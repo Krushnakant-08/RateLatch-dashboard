@@ -42,18 +42,18 @@ function CustomTooltip({ active, payload, label }: any) {
       border: '1px solid var(--border)',
       borderRadius: 'var(--radius-md)',
       padding: '12px 16px',
-      boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+      boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
     }}>
-      <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '8px' }}>
+      <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '8px' }}>
         {formatTooltipDate(label)}
       </p>
       {payload.map((entry: { name: string; value: number; color: string }, idx: number) => (
         <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
           <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: entry.color }} />
-          <span style={{ fontSize: '13px', color: 'var(--text-secondary)', flex: 1 }}>
+          <span style={{ fontSize: '15px', color: 'var(--text-secondary)', flex: 1 }}>
             {entry.name}
           </span>
-          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)' }}>
+          <span style={{ fontSize: '15px', fontWeight: 600, color: 'var(--text-primary)' }}>
             {entry.value.toLocaleString()}
           </span>
         </div>
@@ -84,7 +84,7 @@ export function RequestChart({ data }: RequestChartProps) {
             <stop offset="100%" stopColor="#ef4444" stopOpacity={0} />
           </linearGradient>
         </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="rgba(148, 163, 184, 0.08)" />
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(85, 107, 47, 0.15)" />
         <XAxis
           dataKey="hour"
           tickFormatter={formatHour}
@@ -102,7 +102,7 @@ export function RequestChart({ data }: RequestChartProps) {
         />
         <Tooltip content={<CustomTooltip />} />
         <Legend
-          wrapperStyle={{ fontSize: '12px', paddingTop: '12px' }}
+          wrapperStyle={{ fontSize: '14px', paddingTop: '12px' }}
         />
         <Area
           type="monotone"
@@ -128,3 +128,4 @@ export function RequestChart({ data }: RequestChartProps) {
     </ResponsiveContainer>
   );
 }
+

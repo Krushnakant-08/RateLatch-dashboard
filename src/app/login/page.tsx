@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { login } from '@/lib/api';
-import { setToken } from '@/lib/auth';
+import { setToken, decodeToken } from '@/lib/auth';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -21,7 +21,14 @@ export default function LoginPage() {
     try {
       const res = await login({ email, projectKey });
       setToken(res.dashboardToken);
-      router.push('/dashboard');
+
+      // Route based on role
+      const payload = decodeToken(res.dashboardToken);
+      if (payload?.role === 'owner') {
+        router.push('/admin');
+      } else {
+        router.push('/dashboard');
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed');
     } finally {
@@ -45,7 +52,7 @@ export default function LoginPage() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '28px',
+            fontSize: '30px',
             boxShadow: '0 8px 24px rgba(99, 102, 241, 0.3)',
           }}>
             ⚡
@@ -89,7 +96,7 @@ export default function LoginPage() {
             id="login-submit"
             type="submit"
             className="btn btn-primary"
-            style={{ width: '100%', padding: '12px', fontSize: '15px' }}
+            style={{ width: '100%', padding: '12px', fontSize: '17px' }}
             disabled={loading}
           >
             {loading ? 'Signing in...' : 'Sign In'}
@@ -104,3 +111,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

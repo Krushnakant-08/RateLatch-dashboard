@@ -43,12 +43,12 @@ export function KeyDisplay({ label, value, masked = true }: KeyDisplayProps) {
       border: '1px solid var(--border)',
       borderRadius: 'var(--radius-md)',
     }}>
-      <span style={{ fontSize: '13px', color: 'var(--text-muted)', flexShrink: 0 }}>
+      <span style={{ fontSize: '15px', color: 'var(--text-muted)', flexShrink: 0 }}>
         {label}
       </span>
       <code style={{
         fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-        fontSize: '13px',
+        fontSize: '15px',
         color: 'var(--primary-light)',
         flex: 1,
         overflow: 'hidden',
@@ -60,10 +60,11 @@ export function KeyDisplay({ label, value, masked = true }: KeyDisplayProps) {
       <button
         onClick={handleCopy}
         className="btn btn-ghost btn-sm"
-        style={{ flexShrink: 0, fontSize: '12px', padding: '4px 10px' }}
+        style={{ flexShrink: 0, fontSize: '14px', padding: '4px 10px' }}
       >
         {copied ? '✓ Copied' : 'Copy'}
       </button>
     </div>
   );
 }
+

@@ -30,7 +30,7 @@ export default function ConfigPage() {
                 <td>
                   <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{plan.name}</span>
                 </td>
-                <td style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '13px' }}>
+                <td style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '15px' }}>
                   {plan.maxReq.toLocaleString()} req
                 </td>
                 <td>{plan.windowSec} seconds</td>
@@ -51,7 +51,7 @@ export default function ConfigPage() {
         borderRadius: 'var(--radius-md)',
         background: 'rgba(6, 182, 212, 0.05)',
         border: '1px solid rgba(6, 182, 212, 0.1)',
-        fontSize: '13px',
+        fontSize: '15px',
         color: 'var(--text-muted)',
         lineHeight: 1.6,
       }}>
@@ -62,3 +62,4 @@ export default function ConfigPage() {
     </>
   );
 }
+

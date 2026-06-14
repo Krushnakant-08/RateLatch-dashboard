@@ -50,6 +50,15 @@ export function Sidebar({ variant }: SidebarProps) {
       ),
     },
     {
+      href: '/dashboard/billing',
+      label: 'Billing',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2" /><line x1="1" y1="10" x2="23" y2="10" />
+        </svg>
+      ),
+    },
+    {
       href: '/dashboard/settings',
       label: 'Settings',
       icon: (
@@ -112,7 +121,7 @@ export function Sidebar({ variant }: SidebarProps) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: '16px',
+          fontSize: '18px',
         }}>
           ⚡
         </div>
@@ -143,7 +152,7 @@ export function Sidebar({ variant }: SidebarProps) {
         {auth && (
           <div style={{
             padding: '8px 12px',
-            fontSize: '12px',
+            fontSize: '14px',
             color: 'var(--text-muted)',
             marginBottom: '8px',
             overflow: 'hidden',
@@ -169,3 +178,4 @@ export function Sidebar({ variant }: SidebarProps) {
     </aside>
   );
 }
+

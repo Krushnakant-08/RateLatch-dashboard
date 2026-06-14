@@ -29,17 +29,17 @@ export default function SettingsPage() {
 
       {/* Account Info */}
       <div className="glass-card" style={{ padding: '24px', marginBottom: '16px' }}>
-        <h3 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '16px' }}>Account Information</h3>
+        <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px' }}>Account Information</h3>
         <div style={{ display: 'grid', gap: '12px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid var(--border)' }}>
-            <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Email</span>
-            <span style={{ fontSize: '14px', fontWeight: 500 }}>{auth?.email ?? '—'}</span>
+            <span style={{ color: 'var(--text-muted)', fontSize: '16px' }}>Email</span>
+            <span style={{ fontSize: '16px', fontWeight: 500 }}>{auth?.email ?? '—'}</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid var(--border)' }}>
-            <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Tenant ID</span>
+            <span style={{ color: 'var(--text-muted)', fontSize: '16px' }}>Tenant ID</span>
             <code style={{
               fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '12px',
+              fontSize: '14px',
               color: 'var(--primary-light)',
             }}>
               {auth?.tenantId ?? '—'}
@@ -50,7 +50,7 @@ export default function SettingsPage() {
 
       {/* Dashboard Token */}
       <div className="glass-card" style={{ padding: '24px', marginBottom: '16px' }}>
-        <h3 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '16px' }}>Dashboard Token</h3>
+        <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px' }}>Dashboard Token</h3>
         <div style={{
           background: 'var(--bg-primary)',
           border: '1px solid var(--border)',
@@ -60,13 +60,13 @@ export default function SettingsPage() {
         }}>
           <code style={{
             fontFamily: "'JetBrains Mono', monospace",
-            fontSize: '11px',
+            fontSize: '13px',
             color: 'var(--text-muted)',
           }}>
             {token ? `${token.slice(0, 30)}...${token.slice(-10)}` : '—'}
           </code>
         </div>
-        <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginTop: '8px' }}>
+        <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginTop: '8px' }}>
           Use this token to authenticate management API requests.
         </p>
       </div>
@@ -78,10 +78,10 @@ export default function SettingsPage() {
         border: '1px solid rgba(239, 68, 68, 0.2)',
         background: 'rgba(239, 68, 68, 0.03)',
       }}>
-        <h3 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '8px', color: 'var(--error-light)' }}>
+        <h3 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '8px', color: 'var(--error-light)' }}>
           Danger Zone
         </h3>
-        <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px' }}>
+        <p style={{ fontSize: '15px', color: 'var(--text-muted)', marginBottom: '16px' }}>
           These actions are irreversible. Proceed with caution.
         </p>
         <div style={{ display: 'flex', gap: '8px' }}>
@@ -93,3 +93,4 @@ export default function SettingsPage() {
     </>
   );
 }
+

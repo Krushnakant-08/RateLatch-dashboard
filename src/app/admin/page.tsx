@@ -61,19 +61,19 @@ export default function AdminOverview() {
           padding: '20px 0',
         }}>
           <div>
-            <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '4px' }}>p50</p>
-            <p style={{ fontSize: '28px', fontWeight: 700, color: 'var(--success-light)' }}>—</p>
+            <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '4px' }}>p50</p>
+            <p style={{ fontSize: '30px', fontWeight: 700, color: 'var(--success-light)' }}>—</p>
           </div>
           <div>
-            <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '4px' }}>p95</p>
-            <p style={{ fontSize: '28px', fontWeight: 700, color: 'var(--warning-light)' }}>—</p>
+            <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '4px' }}>p95</p>
+            <p style={{ fontSize: '30px', fontWeight: 700, color: 'var(--warning-light)' }}>—</p>
           </div>
           <div>
-            <p style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '4px' }}>p99</p>
-            <p style={{ fontSize: '28px', fontWeight: 700, color: 'var(--error-light)' }}>—</p>
+            <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '4px' }}>p99</p>
+            <p style={{ fontSize: '30px', fontWeight: 700, color: 'var(--error-light)' }}>—</p>
           </div>
         </div>
-        <p style={{ fontSize: '12px', color: 'var(--text-muted)', textAlign: 'center' }}>
+        <p style={{ fontSize: '14px', color: 'var(--text-muted)', textAlign: 'center' }}>
           Requires Prometheus metrics integration
         </p>
       </div>
@@ -84,7 +84,7 @@ export default function AdminOverview() {
         borderRadius: 'var(--radius-md)',
         background: 'rgba(6, 182, 212, 0.05)',
         border: '1px solid rgba(6, 182, 212, 0.1)',
-        fontSize: '13px',
+        fontSize: '15px',
         color: 'var(--text-muted)',
       }}>
         <strong style={{ color: 'var(--accent-light)' }}>Note:</strong> Platform-wide stats require the admin API
@@ -94,3 +94,4 @@ export default function AdminOverview() {
     </>
   );
 }
+

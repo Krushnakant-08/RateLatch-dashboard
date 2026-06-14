@@ -22,11 +22,11 @@ export default function BillingPage() {
         ].map((p) => (
           <div key={p.plan} className="glass-card" style={{ padding: '20px 24px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-              <span style={{ fontSize: '14px', fontWeight: 600, color: p.color }}>{p.plan}</span>
+              <span style={{ fontSize: '16px', fontWeight: 600, color: p.color }}>{p.plan}</span>
               <span className="badge badge-primary">{p.limit}</span>
             </div>
-            <p style={{ fontSize: '28px', fontWeight: 700, color: 'var(--text-primary)' }}>—</p>
-            <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>tenants</p>
+            <p style={{ fontSize: '30px', fontWeight: 700, color: 'var(--text-primary)' }}>—</p>
+            <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>tenants</p>
           </div>
         ))}
       </div>
@@ -57,3 +57,4 @@ export default function BillingPage() {
     </>
   );
 }
+

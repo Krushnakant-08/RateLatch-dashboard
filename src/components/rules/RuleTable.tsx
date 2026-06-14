@@ -64,7 +64,7 @@ export function RuleTable({ rules, onEdit, readOnly = false }: RuleTableProps) {
               <td>
                 <code style={{
                   fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: '13px',
+                  fontSize: '15px',
                   color: 'var(--primary-light)',
                   background: 'rgba(99, 102, 241, 0.1)',
                   padding: '2px 8px',
@@ -94,7 +94,7 @@ export function RuleTable({ rules, onEdit, readOnly = false }: RuleTableProps) {
                   height: '28px',
                   borderRadius: '50%',
                   background: 'var(--bg-tertiary)',
-                  fontSize: '12px',
+                  fontSize: '14px',
                   fontWeight: 600,
                 }}>
                   {rule.priority}
@@ -126,3 +126,4 @@ export function RuleTable({ rules, onEdit, readOnly = false }: RuleTableProps) {
     </div>
   );
 }
+

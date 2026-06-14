@@ -14,7 +14,7 @@ export function StatCard({ label, value, delta, deltaDirection, icon }: StatCard
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div>
           <p style={{
-            fontSize: '13px',
+            fontSize: '15px',
             fontWeight: 500,
             color: 'var(--text-muted)',
             textTransform: 'uppercase',
@@ -24,7 +24,7 @@ export function StatCard({ label, value, delta, deltaDirection, icon }: StatCard
             {label}
           </p>
           <p style={{
-            fontSize: '28px',
+            fontSize: '30px',
             fontWeight: 700,
             letterSpacing: '-0.02em',
             color: 'var(--text-primary)',
@@ -38,7 +38,7 @@ export function StatCard({ label, value, delta, deltaDirection, icon }: StatCard
               alignItems: 'center',
               gap: '4px',
               marginTop: '8px',
-              fontSize: '12px',
+              fontSize: '14px',
               fontWeight: 500,
               color: deltaDirection === 'up' ? 'var(--success-light)' : 'var(--error-light)',
               background: deltaDirection === 'up'
@@ -70,3 +70,4 @@ export function StatCard({ label, value, delta, deltaDirection, icon }: StatCard
     </div>
   );
 }
+
