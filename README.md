@@ -48,7 +48,7 @@
 ## Requirements
 
 - Node.js 20+
-- **[RateLatch-core](https://github.com/yourusername/ratelatch-core)** running locally via `docker compose up -d`
+- **[RateLatch-core](https://github.com/Krushnakant-08/RateLatch-core)** running locally via `docker compose up -d`
 
 ---
 
@@ -177,4 +177,4 @@ Custom dark theme in `src/app/globals.css`:
 
 ## Related
 
-- **[RateLatch-core](https://github.com/yourusername/ratelatch-core)** — Backend gateway, Management API, and infrastructure
+- **[RateLatch-core](https://github.com/Krushnakant-08/RateLatch-core)** — Backend gateway, Management API, and infrastructure
